@@ -1,22 +1,24 @@
 chrome.action.onClicked.addListener(async (tab) => {
   try {
-    const arxivRegex = /arxiv\.org\/(pdf|abs)\/(\d+\.\d+)/;
-    const match = tab.url.match(arxivRegex);
+    // 同时匹配 arXiv 和 AlphaXiv 的 URL 模式
+    const pattern = /(arxiv|alphaxiv)\.org\/(pdf|abs)\/(\d+\.\d+)/;
+    const match = tab.url.match(pattern);
     
     if (match) {
-      const paperId = match[2];
+      // 提取论文ID（第三个捕获组）
+      const paperId = match[3];
+      
+      // 构建新URL（根据需求自定义）
       const newUrl = `https://hjfy.top/arxiv/${paperId}`;
       
-      // 获取当前标签页的index并加1
-      const newIndex = tab.index + 1;
-      
-      await chrome.tabs.create({ 
+      // 创建右侧相邻标签页
+      await chrome.tabs.create({
         url: newUrl,
-        index: newIndex,
-        openerTabId: tab.id  // 可选，关联原标签页
+        index: tab.index + 1, // 定位到当前标签右侧
+        openerTabId: tab.id
       });
     }
   } catch (error) {
-    console.error('Error:', error);
+    console.error('扩展程序错误:', error);
   }
 });
