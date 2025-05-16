@@ -1,7 +1,7 @@
 # 幻觉翻译浏览器插件
 
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 一键将 arXiv PDF/abs 页面重定向到[幻觉翻译](https://hjfy.top/)
 
