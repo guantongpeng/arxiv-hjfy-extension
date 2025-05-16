@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "arXiv 幻觉翻译",
+    "version": "1.0",
+    "description": "Redirect arXiv pages to custom URL",
+    "icons": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "action": {
+      "default_icon": {
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "scripting"]
+  }
